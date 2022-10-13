@@ -14,7 +14,7 @@ export class ArticlesService {
 
   findAll() {
     return `This action returns all articles`;
-    return this.prisma.article.findMany({})
+    return this.prisma.article.findMany({where: {published:true}})
   }
 
   findOne(id: number) {
