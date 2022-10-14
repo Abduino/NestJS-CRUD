@@ -19,18 +19,13 @@ export class TariffController {
   }
 
   @Get('/type:type')
-  findServices(@Param('type') type:string) {
-    console.log('biiii');
-    
+  findServices(@Param('type') type:string) {    
     return this.tariffService.findServices( type);
   }
-@Get(':id')
+  @Get(':id')
   findOne(@Param('id') id: string) {
     return this.tariffService.findOne(+id);
   }
-
-  
-
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTariffDto: UpdateTariffDto) {
     return this.tariffService.update(+id, updateTariffDto);

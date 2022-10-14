@@ -3,7 +3,6 @@ import { CreateTariffDto } from './dto/create-tariff.dto';
 import { UpdateTariffDto } from './dto/update-tariff.dto';
 import { PrismaService } from 'src/nest/prismanp/prisma.service';
 
-
 @Injectable()
 export class TariffService {
   constructor (private prisma: PrismaService){}
@@ -31,7 +30,6 @@ export class TariffService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} tariff`;
     return this.prisma.tariff.delete({where: {id}});
   }
 }
