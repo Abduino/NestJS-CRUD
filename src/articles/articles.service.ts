@@ -24,10 +24,12 @@ export class ArticlesService {
     return this.prisma.article.findUnique({where: {id}});
   }
   update(id: number, updateArticleDto: UpdateArticleDto) {
+    return this.prisma.article.update({where: {id}, data: updateArticleDto});
     return `This action updates a #${id} article`;
   }
 
   remove(id: number) {
-    return `This action removes a #${id} article`;
+    //return `This action removes a #${id} article`;
+    return this.prisma.article.delete({where: {id}});
   }
 }
