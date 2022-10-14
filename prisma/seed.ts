@@ -30,8 +30,39 @@ async function main() {
       published: true,
     },
   });
+  const price1 = await prisma.tariff.upsert({
+    where: { type: 'Motorcycle'},
+    update: {},
+    create: {
+      initial: 100,
+      price: 10,
+      commission: 5 * 0.20,
+      type: 'Motorcycle',
+    },
+  });
+  const price2 = await prisma.tariff.upsert({
+    where: { type: 'Minivan'},
+    update: {},
+    create: {
+      initial: 110,
+      price: 12,
+      commission: 5 * 0.20,
+      type: 'Minivan',
+    },
+  });
+  const price3 = await prisma.tariff.upsert({
+    where: { type: 'Pickup'},
+    update: {},
+    create: {
+      initial: 130,
+      price: 15,
+      commission: 5 * 0.20,
+      type: 'Pickup',
+    },
+  });
 
-  console.log({ post1, post2 });
+
+  console.log({ price1, price2, post1, post2 });
 }
 
 // execute the main function
