@@ -7,23 +7,31 @@ import { PrismaService } from 'src/nest/prismanp/prisma.service';
 @Injectable()
 export class TariffService {
   constructor (private prisma: PrismaService){}
+
   create(createTariffDto: CreateTariffDto) {
-    return 'This action adds a new tariff';
+    return this.prisma.tariff.create({ data: createTariffDto});
+ 
   }
+
 
   findAll() {
     return this.prisma.tariff.findMany();
   }
+  findServices(type: string) {
+    return this.prisma.tariff.findMany({ where: { type} });
+  }
+
 
   findOne(id: number) {
-    return `This action returns a #${id} tariff`;
+    return this.prisma.tariff.findUnique({where: {id}});
   }
 
   update(id: number, updateTariffDto: UpdateTariffDto) {
-    return `This action updates a #${id} tariff`;
+    return this.prisma.tariff.update({where: {id}, data: updateTariffDto,}) 
   }
 
   remove(id: number) {
     return `This action removes a #${id} tariff`;
+    return this.prisma.tariff.delete({where: {id}});
   }
 }

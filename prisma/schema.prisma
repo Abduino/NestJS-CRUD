@@ -23,7 +23,7 @@ model Article {
 model Tariff{
   id Int @id @default(autoincrement())
   initial Float
-  price Float
+  price  Float
   commission Float
   type String @unique
   createdAt   DateTime @default(now())
