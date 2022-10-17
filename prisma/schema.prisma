@@ -25,17 +25,23 @@ model Tariff{
   initial Float
   price  Float
   commission Float
-  type String @unique
+  type String 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  serviceType ServiceType @relation(fields: [serviceTypeId], references: [id])
+  serviceTypeId Int @unique
 }
 
 model ServiceType{
   id Int @id @default(autoincrement())
+  serviceTypePhoto String
   typeName String
   capacity Int
   model String
   year Int
+  tariff Tariff?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 
