@@ -15,8 +15,6 @@ export class CreateTariffDto {
     @ApiProperty()
     price: number; 
 
-    
-    
     @IsNumber()
     @IsNotEmpty()
     @ApiProperty()
@@ -26,4 +24,8 @@ export class CreateTariffDto {
     @IsNotEmpty()
     @ApiProperty()
     type: string;
+
+    @IsNotEmpty()
+    @ApiProperty()
+    serviceTypeId: number;
 }
