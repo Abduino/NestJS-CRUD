@@ -1,6 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import internal from "stream";
 import {  IsNumber, IsBoolean, IsNotEmpty, IsOptional, IsString } from "class-validator";
+
 export class CreateTariffDto {
     
     
