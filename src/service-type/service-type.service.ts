@@ -18,10 +18,14 @@ export class ServiceTypeService {
     return this.prisma.serviceType.findUnique({where:{id}});
   }
 
-  findServicesType(typeName: string) {
-    return this.prisma.serviceType.findMany({ where: { typeName} });
-  }
+/*   findServiceType() {
+    return this.prisma.serviceType.findMany( {select: { typeName: true}});
+  } */
 
+  findServiceType() {
+    return this.prisma.serviceType.findMany({distinct: ['typeName'], select: { typeName: true,},});
+  }
+  
   update(id: number, updateServiceTypeDto: UpdateServiceTypeDto) {
     return this.prisma.serviceType.update({where : {id}, data: updateServiceTypeDto,});
   }

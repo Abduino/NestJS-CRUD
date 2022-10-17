@@ -18,10 +18,10 @@ export class ServiceTypeController {
     return this.serviceTypeService.findAll();
   }
 
-/*   @Get('/serviceType:serviceType')
-  findServices(@Param('serviceType') type:string) {    
-    return this.serviceTypeService.findServiceType( type);
-  } */
+  @Get(':serviceType')
+  findServices() {    
+    return this.serviceTypeService.findServiceType();
+  }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
