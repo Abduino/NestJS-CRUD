@@ -10,7 +10,7 @@ export class CreateServiceTypeDto {
     serviceTypePhoto: string;
   
   
-     @Length(5, 50, {
+     @Length(2, 50, {
         message: 'Incorrect length!',
       })
     @IsNotEmptyString()
@@ -32,9 +32,5 @@ export class CreateServiceTypeDto {
     @IsNotEmpty()   
     @ApiProperty()
     year: number;
-
-    @IsOptional()
-    @ApiProperty()
-    tariff: number;
 
 }
