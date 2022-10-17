@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import internal from "stream";
+
 export class CreateTariffDto {
     @ApiProperty()
     initial: number;
