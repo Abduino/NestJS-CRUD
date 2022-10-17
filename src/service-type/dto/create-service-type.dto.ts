@@ -1,28 +1,40 @@
 
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEmpty,  IsNumber, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { Length, IsInt, IsEmpty,  IsNumber, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { IsNotEmptyString } from 'src/utils/decorators';
 
 export class CreateServiceTypeDto {
         
-    @IsString()
-    @IsNotEmpty()
+    @IsNotEmptyString()
+    @ApiProperty()
+    serviceTypePhoto: string;
+  
+  
+     @Length(5, 50, {
+        message: 'Incorrect length!',
+      })
+    @IsNotEmptyString()
     @ApiProperty()
     typeName: string;
 
 
     @IsNotEmpty()
-    @IsNumber()
+    @IsInt()
     @ApiProperty()
     capacity: number;
 
-    @IsString()
-    @IsNotEmpty()
+    @IsNotEmptyString()
     @ApiProperty()
     model: string;
 
-    @IsNotEmpty()
-    @IsNumber()   
+
+    @IsNumber()
+    @IsNotEmpty()   
     @ApiProperty()
     year: number;
+
+    @IsOptional()
+    @ApiProperty()
+    tariff: number;
 
 }
