@@ -11,12 +11,16 @@ export class ServiceTypeService {
     return this.prisma.serviceType.create({data: createServiceTypeDto});
   }
   findAll() {
-    return this.prisma.serviceType.findMany();
+    return this.prisma.serviceType.findMany({include: {tariff:true}});
   }
 
-  findOne(id: number) {
+/*   findOne(id: number) {
     return this.prisma.serviceType.findUnique({where:{id}});
+  } */
+  findOne(id: number) {
+    return this.prisma.serviceType.findUnique ({where: {id},include: {tariff: true}});
   }
+ 
 
 /*   findServiceType() {
     return this.prisma.serviceType.findMany( {select: { typeName: true}});

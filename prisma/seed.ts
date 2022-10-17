@@ -30,7 +30,7 @@ async function main() {
       published: true,
     },
   });
-  const price1 = await prisma.tariff.upsert({
+/*   const price1 = await prisma.tariff.upsert({
     where: { type: 'Motorcycle'},
     update: {},
     create: {
@@ -59,10 +59,10 @@ async function main() {
       commission: 5 * 0.20,
       type: 'Pickup',
     },
-  });
+  }); */
 
 
-  console.log({ price1, price2, post1, post2 });
+  console.log({ post1, post2 });
 }
 
 // execute the main function
