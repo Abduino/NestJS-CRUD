@@ -16,17 +16,10 @@ export class ServiceTypeController {
   findAll() {
     return this.serviceTypeService.findAll();
   }
-
-  @Get('/serviceType:serviceType')
-  findServices() {    
-    return this.serviceTypeService.findServiceType();
-  }
-
   @Get(':id')
   findOne(@Param('id', ParseIntPipe ) id: number) {
     return this.serviceTypeService.findOne(+id);
   }
-
   @Patch(':id')
   update(@Param('id', ParseIntPipe) id: string, @Body() updateServiceTypeDto: UpdateServiceTypeDto) {
     return this.serviceTypeService.update(+id, updateServiceTypeDto);
@@ -36,4 +29,22 @@ export class ServiceTypeController {
   remove(@Param('id', ParseIntPipe) id: string) {
     return this.serviceTypeService.remove(+id);
   }
+
+
+
+  @Get('/withPrice')
+  findAllRelated() {
+    return this.serviceTypeService.findWithPrice();
+  }
+
+  @Get('/serviceType:serviceType')
+  findServices() {    
+    return this.serviceTypeService.findServiceType();
+  }
+  @Get('/withPrice:id')
+  findOneWPrice(@Param('id', ParseIntPipe ) id: number) {
+    return this.serviceTypeService.findOneWithPrice(+id);
+  }
+
+
 }

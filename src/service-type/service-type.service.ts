@@ -10,7 +10,12 @@ export class ServiceTypeService {
   create(createServiceTypeDto: CreateServiceTypeDto) {
     return this.prisma.serviceType.create({data: createServiceTypeDto});
   }
+
   findAll() {
+    return this.prisma.serviceType.findMany();
+  }
+
+  findWithPrice() {
     return this.prisma.serviceType.findMany({include: {tariff:true}});
   }
 
@@ -18,6 +23,10 @@ export class ServiceTypeService {
     return this.prisma.serviceType.findUnique({where:{id}});
   } */
   findOne(id: number) {
+    return this.prisma.serviceType.findUnique ({where: {id},});
+  }
+
+    findOneWithPrice(id: number) {
     return this.prisma.serviceType.findUnique ({where: {id},include: {tariff: true}});
   }
  
