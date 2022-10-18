@@ -16,35 +16,55 @@ export class ServiceTypeController {
   findAll() {
     return this.serviceTypeService.findAll();
   }
-  @Get(':id')
-  findOne(@Param('id', ParseIntPipe ) id: number) {
+  @Get('/onlyServices:id')
+  findOne(@Param('id') id: number) {
     return this.serviceTypeService.findOne(+id);
   }
+/*   @Get ('withPrice')
+  findAllRelated(){
+    return this.serviceTypeService.findWithPrice();
+  } */
+/*   @Get('serviceType')
+  findServices(){
+    return this.serviceTypeService.findServiceType();
+  } */
+/*   @Get('/typeName:typeName')
+  findAllServices(@Param('typeName') typeName:string) {    
+    return this.serviceTypeService.findAllServicesType(typeName);
+  } */
+  @Get('/serviceType:serviceType')
+  findServices(){
+    return this.serviceTypeService.findServicesTypes();
+  }
+/*   @Get('/typeName:typeName')
+  findServices(@Param('typeName') typeName:string) {    
+    return this.serviceTypeService.findServiceType(typeName);
+  } */
+
   @Patch(':id')
-  update(@Param('id', ParseIntPipe) id: string, @Body() updateServiceTypeDto: UpdateServiceTypeDto) {
+  update(@Param('id') id: string, @Body() updateServiceTypeDto: UpdateServiceTypeDto) {
     return this.serviceTypeService.update(+id, updateServiceTypeDto);
   }
 
   @Delete(':id')
-  remove(@Param('id', ParseIntPipe) id: string) {
+  remove(@Param('id') id: string) {
     return this.serviceTypeService.remove(+id);
   }
-
-
 
   @Get('/withPrice')
   findAllRelated() {
     return this.serviceTypeService.findWithPrice();
   }
-
-  @Get('/serviceType:serviceType')
-  findServices() {    
-    return this.serviceTypeService.findServiceType();
-  }
   @Get('/withPrice:id')
-  findOneWPrice(@Param('id', ParseIntPipe ) id: number) {
+  findOneWithPrice(@Param('id') id: number) {
     return this.serviceTypeService.findOneWithPrice(+id);
   }
+
+
+
+
+
+
 
 
 }

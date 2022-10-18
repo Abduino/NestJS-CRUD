@@ -14,31 +14,21 @@ export class ServiceTypeService {
   findAll() {
     return this.prisma.serviceType.findMany();
   }
-
-  findWithPrice() {
-    return this.prisma.serviceType.findMany({include: {tariff:true}});
-  }
-
-/*   findOne(id: number) {
-    return this.prisma.serviceType.findUnique({where:{id}});
-  } */
   findOne(id: number) {
-    return this.prisma.serviceType.findUnique ({where: {id},});
+    return this.prisma.serviceType.findUnique ({where: {id}});
   }
 
-    findOneWithPrice(id: number) {
-    return this.prisma.serviceType.findUnique ({where: {id},include: {tariff: true}});
+  findWithPrice(){
+    return this.prisma.serviceType.findMany({include: {tariff:true}})
   }
- 
 
-/*   findServiceType() {
+  findServicesTypes(){
+    return this.prisma.serviceType.findMany({ distinct: ['typeName'], select: {typeName: true}});
+  }
+  /*   findServiceType() {
     return this.prisma.serviceType.findMany( {select: { typeName: true}});
   } */
-
-  findServiceType() {
-    return this.prisma.serviceType.findMany({distinct: ['typeName'], select: { typeName: true,},});
-  }
-  
+    
   update(id: number, updateServiceTypeDto: UpdateServiceTypeDto) {
     return this.prisma.serviceType.update({where : {id}, data: updateServiceTypeDto,});
   }
@@ -46,4 +36,19 @@ export class ServiceTypeService {
   remove(id: number) {
     return this.prisma.serviceType.delete({where: {id}});
   }
+
+
+/*   findOne(id: number) {
+    return this.prisma.serviceType.findUnique({where:{id}});
+  } */
+
+
+  findOneWithPrice(id: number) {
+    return this.prisma.serviceType.findUnique ({where: {id},include:{tariff:true}});
+  }
+
+
+
+
+
 }

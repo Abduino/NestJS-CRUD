@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 
 async function main() {
   // create two dummy articles
-  const post1 = await prisma.article.upsert({
+/*   const post1 = await prisma.article.upsert({
     where: { title: 'Prisma Adds Support for MongoDB' },
     update: {},
     create: {
@@ -29,7 +29,7 @@ async function main() {
         'Learn about everything in the Prisma ecosystem and community from January to March 2022.',
       published: true,
     },
-  });
+  }); */
 /*   const price1 = await prisma.tariff.upsert({
     where: { type: 'Motorcycle'},
     update: {},
@@ -62,7 +62,7 @@ async function main() {
   }); */
 
 
-  console.log({ post1, post2 });
+  console.log("good to go");
 }
 
 // execute the main function
