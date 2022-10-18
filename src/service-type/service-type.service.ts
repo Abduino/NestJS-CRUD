@@ -47,6 +47,10 @@ export class ServiceTypeService {
     return this.prisma.serviceType.findUnique ({where: {id},include:{tariff:true}});
   }
 
+  findTotalNumberServices(){
+    return this.prisma.serviceType.count();
+  }
+
 
 
 

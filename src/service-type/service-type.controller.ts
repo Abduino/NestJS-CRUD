@@ -60,6 +60,11 @@ export class ServiceTypeController {
     return this.serviceTypeService.findOneWithPrice(+id);
   }
 
+  @Get('/totalServices')
+  findTotalServices(){
+    return this.serviceTypeService.findTotalNumberServices();
+  }
+
 
 
 
