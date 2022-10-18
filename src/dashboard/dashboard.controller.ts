@@ -16,6 +16,10 @@ export class DashboardController {
   findAll() {
     return this.dashboardService.findAll();
   }
+  @Get('/agregate')
+  findAgrigate(){
+    return this.dashboardService.findAgregateData();
+  }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
