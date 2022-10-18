@@ -1,10 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
-import internal from "stream";
-import {  IsNumber, IsBoolean, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import {  IsNumber, IsNotEmpty, IsString } from "class-validator";
 
 export class CreateTariffDto {
-    
-    
     @IsNumber()
     @IsNotEmpty()
     @ApiProperty()
@@ -19,11 +16,6 @@ export class CreateTariffDto {
     @IsNotEmpty()
     @ApiProperty()
     commission: number; 
-
-    @IsString()
-    @IsNotEmpty()
-    @ApiProperty()
-    type: string;
 
     @IsNotEmpty()
     @ApiProperty()

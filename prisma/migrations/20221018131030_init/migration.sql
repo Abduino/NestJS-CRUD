@@ -17,7 +17,6 @@ CREATE TABLE `Tariff` (
     `initial` DOUBLE NOT NULL,
     `price` DOUBLE NOT NULL,
     `commission` DOUBLE NOT NULL,
-    `type` VARCHAR(200) NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
     `serviceTypeId` INTEGER NOT NULL,

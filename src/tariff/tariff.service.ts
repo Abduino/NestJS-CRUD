@@ -16,9 +16,7 @@ export class TariffService {
   findAll() {
     return this.prisma.tariff.findMany();
   }
-  findServices(type: string) {
-    return this.prisma.tariff.findMany({ where: { type} });
-  }
+
 
 
   findOne(id: number) {

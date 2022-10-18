@@ -18,10 +18,7 @@ export class TariffController {
     return this.tariffService.findAll();
   }
 
-  @Get('/type:type')
-  findServices(@Param('type') type:string) {    
-    return this.tariffService.findServices( type);
-  }
+ 
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.tariffService.findOne(+id);
