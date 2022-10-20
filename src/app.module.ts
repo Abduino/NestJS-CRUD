@@ -5,10 +5,11 @@ import { PrismaModule } from './nest/prismanp/prisma.module';
 import { ArticlesModule } from './articles/articles.module';
 import { TariffModule } from './tariff/tariff.module';
 import { ServiceTypeModule } from './service-type/service-type.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 @Module({
-  imports: [PrismaModule, ArticlesModule, TariffModule, ServiceTypeModule],
+  imports: [PrismaModule, ArticlesModule, TariffModule, ServiceTypeModule, DashboardModule],
   controllers: [AppController],
   providers: [AppService],
 })

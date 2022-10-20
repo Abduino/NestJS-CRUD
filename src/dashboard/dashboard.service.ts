@@ -1,0 +1,33 @@
+import { Injectable } from '@nestjs/common';
+import { CreateDashboardDto } from './dto/create-dashboard.dto';
+import { UpdateDashboardDto } from './dto/update-dashboard.dto';
+import { PrismaService } from 'src/nest/prismanp/prisma.service';
+
+@Injectable()
+export class DashboardService {
+  constructor (private prisma: PrismaService){}
+
+  create(createDashboardDto: CreateDashboardDto) {
+    
+    return 'This action adds a new dashboard';
+  }
+  findAgregateData(){
+    return this.prisma.tariff.count();
+  }
+
+  findAll() {
+    return `This action returns all dashboard`;
+  }
+
+  findOne(id: number) {
+    return `This action returns a #${id} dashboard`;
+  }
+
+  update(id: number, updateDashboardDto: UpdateDashboardDto) {
+    return `This action updates a #${id} dashboard`;
+  }
+
+  remove(id: number) {
+    return `This action removes a #${id} dashboard`;
+  }
+}

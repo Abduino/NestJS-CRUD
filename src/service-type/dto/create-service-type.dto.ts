@@ -8,6 +8,7 @@ export class CreateServiceTypeDto {
     @IsNotEmptyString()
     @ApiProperty()
     serviceTypePhoto: string;
+    // readonly serviceTypePhoto: string;
   
   
      @Length(2, 50, {

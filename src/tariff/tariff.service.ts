@@ -16,9 +16,7 @@ export class TariffService {
   findAll() {
     return this.prisma.tariff.findMany();
   }
-  findServices(type: string) {
-    return this.prisma.tariff.findMany({ where: { type} });
-  }
+
 
 
   findOne(id: number) {
@@ -32,4 +30,10 @@ export class TariffService {
   remove(id: number) {
     return this.prisma.tariff.delete({where: {id}});
   }
+
+  findAgrigate(){
+    return this.prisma.tariff.aggregate({_avg: {initial:true}});
+  }
+
+
 }
