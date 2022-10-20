@@ -30,4 +30,10 @@ export class TariffService {
   remove(id: number) {
     return this.prisma.tariff.delete({where: {id}});
   }
+
+  findAgrigate(){
+    return this.prisma.tariff.aggregate({_avg: {initial:true}});
+  }
+
+
 }

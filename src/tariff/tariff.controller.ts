@@ -18,11 +18,6 @@ export class TariffController {
     return this.tariffService.findAll();
   }
 
- 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.tariffService.findOne(+id);
-  }
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTariffDto: UpdateTariffDto) {
     return this.tariffService.update(+id, updateTariffDto);
@@ -32,4 +27,16 @@ export class TariffController {
   remove(@Param('id') id: string) {
     return this.tariffService.remove(+id);
   }
+
+  @Get('/argigateInitial')
+  findAgregate(){
+    return this.tariffService.findAgrigate();
+  }
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.tariffService.findOne(+id);
+  }
+
+
+
 }
