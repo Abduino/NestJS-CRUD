@@ -11,8 +11,6 @@ export class TariffService {
     return this.prisma.tariff.create({ data: createTariffDto});
  
   }
-
-
   findAll() {
     return this.prisma.tariff.findMany();
   }

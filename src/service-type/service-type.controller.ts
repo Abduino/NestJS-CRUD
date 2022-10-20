@@ -56,7 +56,7 @@ export class ServiceTypeController {
     return this.serviceTypeService.findWithPrice();
   }
   @Get('/withPrice:id')
-  findOneWithPrice(@Param('id') id: number) {
+  findOneWPrice(@Param('id') id: number) {
     return this.serviceTypeService.findOneWithPrice(+id);
   }
 

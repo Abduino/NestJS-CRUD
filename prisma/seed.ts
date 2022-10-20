@@ -62,7 +62,7 @@ async function main() {
   }); */
 
 
-  console.log("good to go");
+  console.log("started");
 }
 
 // execute the main function
