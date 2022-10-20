@@ -42,7 +42,7 @@ export class ServiceTypeController {
     return this.serviceTypeService.findServiceType();
   }
   @Get('/withPrice:id')
-  findOneWPrice(@Param('id', ParseIntPipe ) id: number) {
+  findOneWPrice(@Param('id') id: number) {
     return this.serviceTypeService.findOneWithPrice(+id);
   }
 
