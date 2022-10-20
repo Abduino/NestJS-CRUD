@@ -31,6 +31,7 @@ email String @db.VarChar(255)
 age String @db.VarChar(255) 
 gender String @db.VarChar(255) 
 
+
 }
 
 model staff{
@@ -43,10 +44,6 @@ age String @db.VarChar(255)
 gender String @db.VarChar(255)
 
 }
-
-
-
-
 
 model Tariff{
   id Int @id @default(autoincrement())
@@ -71,6 +68,27 @@ model ServiceType{
   updatedAt   DateTime @updatedAt
 }
 
+model Wallet{
+  id Int @id @default(autoincrement()) 
+  driverId Int
+  balance Float
+  accStatus String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  transaction Transaction?
+
+}
+model Transaction{
+  id Int @id @default(autoincrement())
+  transDate   DateTime @default(now())
+  transMedium String
+  transType String
+  transAmount Float
+
+  wallet Wallet @relation(fields: [walletID], references: [id])
+  walletID Int @unique
+
+}
 // model User{
 //   id String @id @default(cuid())
 //   fname String
