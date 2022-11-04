@@ -36,10 +36,7 @@ export class ServiceTypeController {
   findServices(){
     return this.serviceTypeService.findServicesTypes();
   }
-/*   @Get('/typeName:typeName')
-  findServices(@Param('typeName') typeName:string) {    
-    return this.serviceTypeService.findServiceType(typeName);
-  } */
+
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateServiceTypeDto: UpdateServiceTypeDto) {
