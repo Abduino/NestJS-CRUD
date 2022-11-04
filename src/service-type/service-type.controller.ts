@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
+import { UseGuards, Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
 import { ServiceTypeService } from './service-type.service';
 import { CreateServiceTypeDto } from './dto/create-service-type.dto';
 import { UpdateServiceTypeDto } from './dto/update-service-type.dto';
